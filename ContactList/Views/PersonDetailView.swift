@@ -11,32 +11,33 @@ struct PersonDetailView: View {
     let person: Person
     
     var body: some View {
-        VStack {
-            Image(systemName: "person.fill")
-                .resizable()
-                .frame(width: 120, height: 120)
-                .padding()
-            Divider()
-            
-            VStack(alignment: .leading) {
-                HStack(spacing: 20) {
-                    Image(systemName: "phone")
-                        .foregroundColor(.blue)
-                    Text(person.phoneNumber)
-                }
+        List {
+            VStack {
+                Image(systemName: "person.fill")
+                    .resizable()
+                    .frame(width: 120, height: 120)
+                    .padding()
                 Divider()
                 
-                HStack(spacing: 20) {
-                    Image(systemName: "tray")
-                        .foregroundColor(.blue)
-                    Text(person.email)
+                VStack(alignment: .leading) {
+                    HStack(spacing: 20) {
+                        Image(systemName: "phone")
+                            .foregroundColor(.blue)
+                        Text(person.phoneNumber)
+                    }
+                    Divider()
+                    
+                    HStack(spacing: 20) {
+                        Image(systemName: "tray")
+                            .foregroundColor(.blue)
+                        Text(person.email)
+                    }
                 }
+                .padding()
+                Spacer()
             }
-            .padding()
-            Spacer()
         }
         .navigationTitle(person.fullName)
-        .padding()
     }
 }
 
